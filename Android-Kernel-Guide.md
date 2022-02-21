@@ -34,6 +34,8 @@ Now let's move onto a few popular toolchains and their flavours:
     - Eva GCC
     - GNU's own GCC
   - Uber Toolchain   
-... there might be more but these are all that I know of currently :P  
+  
+There might be more but these are all that I know of currently :P  
+  
 For now I'll explain with Proton Clang which is @kdrag0n's own flavour of Clang:  
 [Github Homepage](https://github.com/kdrag0n/proton-clang)
