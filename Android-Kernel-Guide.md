@@ -26,7 +26,7 @@ What's a toolchain you ask?
 My rough & simplified explanation:
 > A toolchain is a set of build tools organized in a chain that compile your project using supplied compilers, linkers, debuggers and libraries recursively and sequentially in an automated fashion.  
   
-Now let's move onto a few popular toolchains and their flavours:
+A few popular toolchains and their flavours:
   - Clang 
     - AOSP Clang
     - Proton Clang
