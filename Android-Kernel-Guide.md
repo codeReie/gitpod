@@ -18,4 +18,21 @@ For eg (this repo is for Xiaomi's MSM8937 board based devices, "a12/master" name
 ```
 git clone --depth=1 https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937.git -b a12/master mykernel
 ```
-Kernel repo has been cloned into ./mykernel directory~
+Kernel repo has been cloned into ./mykernel directory, let's move onto another interesting part~
+### Step 3:
+Now we need to select a toolchain to compile our kernel...  
+What's a toolchain you ask?  
+My rough & simplified explanation:
+> A toolchain is a set of build tools organized in a chain that compile your project using supplied compilers, linkers, debuggers and libraries recursively and sequentially in an automated fashion.
+Now let's move onto a few popular toolchains and their flavours:
+- Clang 
+  - AOSP Clang
+  - Proton Clang
+  - Snapdragon Clang
+- GCC
+  - Eva GCC
+  - GNU's own GCC
+- Uber Toolchain
+... there might be more but these are all that I know of currently :P  
+For now I'll explain with Proton Clang which is @kdrag0n's own flavour of Clang:  
+[Github Homepage](https://github.com/kdrag0n/proton-clang)
