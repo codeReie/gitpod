@@ -1,8 +1,9 @@
 # Guide to Compile Android Kernel~
 This one's specifically for Ubuntu based distros and Gitpod workspace.  
 Assuming you know a bit of git and bash basics, I'll cover everything else in detail~  
+For TLDR scroll to [Command Summary](##CommandSummary)
 
-_Note: Guide commands can be followed blindly from any directory. I'll be referring to 64bit ARM SOCs._
+_Note: Guide commands can be followed blindly from any directory. I'll be referring to 64bit ARM SOCs. Also_ `--depth=1` _flag has been used each time to save storage space while_ `git clone`.  
 ### Step 1:
 Setup your build environment, dependencies and tools:
 ```
@@ -95,4 +96,21 @@ Your kernel has been compiled into ./out/arch/arm64/boot and will probably be in
 You can zip it using AnyKernel3 template, edit updater-script, flash, test and release it~  
 [AnyKernel3 GitHub Homepage](https://github.com/osm0sis/AnyKernel3)
 
+## Command Summary:
+Here's everything you need w/o interruptions:
+```
+$ git clone --depth=1 https://github.com/akhilnarang/scripts.git -b master vps
+$ cd vps/scripts
+$ bash setup/android_build_env.sh
+$ git clone --depth=1 <git code url> -b <branch> mykernel
+```
+- For Proton Clang:
+```
+$ git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master mykernel/toolchain
+$ cd mykernel && mkdir out
+$ export ARCH=arm64 && SUBARCH=arm64
+$ make O=out ARCH=arm64 <defconfig file name>
+$ PATH="${PWD}/toolchain/bin:$PATH"
+$ make -j$(nproc --all) O=out ARCH=arm64 CC=clang LLVM=1 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+```
 **Thank You~**
