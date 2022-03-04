@@ -67,13 +67,13 @@ For eg in the MSM8937 kernel repo if I want to compile for "mi8937" device which
 ```
 make O=out ARCH=arm64 mi8937_defconfig
 ```
-_All defconfig files are located in arch/arm64/configs directory (ofcourse the arm64 here means our architecture so look for your designaed paths accordingly, it's `arm` for 32bit btw :P)._    
+_All defconfig files are located in arch/arm64/configs directory (ofcourse the arm64 here means our architecture so look for your designaed paths accordingly, it's_ `arm` _for 32bit btw :P)._    
   
 Now the environment needs the path to your compiler to run it during compilation:
 ```
 PATH="${PWD}/toolchain/bin:$PATH"
 ```
-_Note: For any compiler you need to point the path to it's /bin directory. If `clang -v` command shows Proton Clang then the path has been properly set._
+_Note: For any compiler you need to point the path to it's /bin directory. If_ `clang -v` _command shows Proton Clang then the path has been properly set._  
 
 To begin the compilation:
 ```
