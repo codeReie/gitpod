@@ -79,7 +79,7 @@ To begin the compilation:
 ```
 make -j$(nproc --all) O=out ARCH=arm64 CC=clang LLVM=1 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 ```
-_Note: `LLVM=1` is a shorthand for enabling all LLVM tools instead of GCC binutils. You can instead manually enter commands to use individual tools as per your need if your kernel doesn't support any or the shorthand itself, directly into the `make` command._  
+_Note:_ `LLVM=1` _is a shorthand for enabling all LLVM tools instead of GCC binutils. You can instead manually enter commands to use individual tools as per your need if your kernel doesn't support any or the shorthand itself, directly into the_ `make` _command._  
 
 LLVM tool commands (You can use as many as you want, just replace `LLVM=1`):
 - `AR=llvm-ar`  
@@ -88,7 +88,7 @@ LLVM tool commands (You can use as many as you want, just replace `LLVM=1`):
 - `OBJDUMP=llvm-objdump`  
 - `STRIP=llvm-strip`  
 
-_Note: In case compiler throws error regarding defconfig or says /out directory dirty, you can either `rm -rf out && mkdir out` or `make clean && make mrproper` and redo from specifying architecture to makefile step._  
+_Note: In case compiler throws error regarding defconfig or says /out directory dirty, you can either_ `rm -rf out && mkdir out`_ or _`make clean && make mrproper` _and redo from specifying architecture to makefile step._  
 ### Step 4:
 Congratulations :tada:  
 Your kernel has been compiled into ./out/arch/arm64/boot and will probably be in Image.gz-dtb format depending on your tree.  
