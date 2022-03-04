@@ -90,7 +90,7 @@ LLVM tool commands (You can use as many as you want, just replace `LLVM=1`):
 ### Step 4:
 Congratulations :tada:  
 Your kernel has been compiled into ./out/arch/arm64/boot and will probably be in Image.gz-dtb format depending on your tree.  
-You can zip it using AnyKernel3 template, edit updater-script, flash, test and release it~
+You can zip it using AnyKernel3 template, edit updater-script, flash, test and release it~  
 [AnyKernel3 GitHub Homepage](https://github.com/osm0sis/AnyKernel3)
 
 **Thank You~**
