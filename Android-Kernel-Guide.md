@@ -80,7 +80,7 @@ To begin the compilation:
 ```
 make -j$(nproc --all) O=out ARCH=arm64 CC=clang LLVM=1 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 ```
-Here `-j` argument specifies how many CPU cores the compiler can use. While `-j$(nproc --all)` allows the compiler all available cores.
+Here `-j` argument specifies how many CPU cores the compiler can use. While `-j$(nproc --all)` allows the compiler to use all available cores.  
 
 _Note:_ `LLVM=1` _is a shorthand for enabling all LLVM tools instead of GCC binutils. You can instead manually enter commands to use individual tools as per your need if your kernel doesn't support any or the shorthand itself, directly into the_ `make` _command._  
 
