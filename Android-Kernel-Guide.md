@@ -1,6 +1,7 @@
 # Guide to Compile Android Kernel~
 This one's specifically for Ubuntu based distros and Gitpod workspace.  
-Assuming you know a bit of git and bash basics, I'll cover everything else in detail~
+Assuming you know a bit of git and bash basics, I'll cover everything else in detail~  
+(Glossary)
 ### Step 1:
 Setup your build environment, dependencies and tools:
 ```
@@ -39,4 +40,11 @@ A few popular toolchains and their flavours:
 There might be more but these are all that I know of currently :P  
   
 For now I'll explain with Proton Clang which is @kdrag0n's own flavour of Clang:  
-[Github Homepage](https://github.com/kdrag0n/proton-clang)
+[Github Homepage](https://github.com/kdrag0n/proton-clang)  
+  
+Let's clone the toolchain:
+```
+git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master mykernel/toolchain
+```
+We cloned the toolchain in ./mykernel/toolchain directory, let's get started with actual compilation~
+### Step 4:
