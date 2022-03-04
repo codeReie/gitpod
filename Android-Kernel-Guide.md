@@ -2,15 +2,15 @@
 This one's specifically for Ubuntu based distros and Gitpod workspace.  
 Assuming you know a bit of git and bash basics, I'll cover everything else in detail~  
 
-Note: Guide commands can be followed blindly from any directory. I'll be referring to 64bit ARM SOCs.
+_Note: Guide commands can be followed blindly from any directory. I'll be referring to 64bit ARM SOCs._
 ### Step 1:
 Setup your build environment, dependencies and tools:
 ```
-$ git clone --depth=1 https://github.com/akhilnarang/scripts.git -b master .
-$ cd scripts
+$ git clone --depth=1 https://github.com/akhilnarang/scripts.git -b master vps
+$ cd vps/scripts
 $ bash setup/android_build_env.sh
 ```
-Environment has been setup, let's move onto Kernel part~
+_Environment has been setup, let's move onto Kernel part~_
 ### Step 2:
 Clone your kernel repo:
 ```
@@ -20,14 +20,14 @@ For eg (this repo is for Xiaomi's MSM8937 board based devices, "a12/master" name
 ```
 git clone --depth=1 https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937.git -b a12/master mykernel
 ```
-Kernel repo has been cloned into ./mykernel directory, let's move onto another interesting part~
+_Kernel repo has been cloned into ./mykernel directory, let's move onto another interesting part~_
 ### Step 3:
 Now we need to select a toolchain to compile our kernel...  
-  
+
 What's a toolchain you ask?  
 My rough & simplified explanation:
 > A toolchain is a set of build tools organized in a chain that compile your project using supplied compilers, linkers, debuggers and libraries recursively and sequentially in an automated fashion.  
-  
+
 A few popular toolchains and their flavours:
   - Clang 
     - AOSP Clang
@@ -37,12 +37,11 @@ A few popular toolchains and their flavours:
     - Eva GCC
     - GNU's own GCC
   - Uber Toolchain   
-  
+
 There might be more but these are all that I know of currently :P  
-  
+
 For now I'll explain with Proton Clang which is @kdrag0n's own flavour of Clang:  
 [Clang Github Homepage](https://github.com/kdrag0n/proton-clang)  
-  
 #### Proton Clang:
 Let's clone the toolchain:
 ```
@@ -74,4 +73,24 @@ Now the environment needs the path to your compiler to run it during compilation
 ```
 PATH="${PWD}/toolchain/bin:$PATH"
 ```
-For any compiler you need to point the path to it's /bin directory.
+_Note: For any compiler you need to point the path to it's /bin directory. If `clang -v` command shows Proton Clang then the path has been properly set._
+
+To begin the compilation:
+```
+make -j$(nproc --all) O=out ARCH=arm64 CC=clang LLVM=1 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+```
+_Note: `LLVM=1` is a shorthand for enabling all LLVM tools instead of GCC binutils. You can instead manually enter commands to use individual tools as per your need if your kernel doesn't support any or the shorthand itself, directly into the `make` command._  
+
+LLVM tool commands (You can use as many as you want, just replace `LLVM=1`):
+- `AR=llvm-ar`  
+- `NM=llvm-nm`  
+- `OBJCOPY=llvm-objcopy`  
+- `OBJDUMP=llvm-objdump`  
+- `STRIP=llvm-strip`  
+### Step 4:
+Congratulations :tada:  
+Your kernel has been compiled into ./out/arch/arm64/boot and will probably be in Image.gz-dtb format depending on your tree.  
+You can zip it using AnyKernel3 template, edit updater-script, flash, test and release it~
+[AnyKernel3 GitHub Homepage](https://github.com/osm0sis/AnyKernel3)
+
+**Thank You~**
