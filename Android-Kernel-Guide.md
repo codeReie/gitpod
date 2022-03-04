@@ -87,6 +87,8 @@ LLVM tool commands (You can use as many as you want, just replace `LLVM=1`):
 - `OBJCOPY=llvm-objcopy`  
 - `OBJDUMP=llvm-objdump`  
 - `STRIP=llvm-strip`  
+
+_Note: In case compiler throws error regarding defconfig or says /out directory dirty, you can either `rm -rf out && mkdir out` or `make clean && make mrproper` and redo from specifying architecture to makefile step._  
 ### Step 4:
 Congratulations :tada:  
 Your kernel has been compiled into ./out/arch/arm64/boot and will probably be in Image.gz-dtb format depending on your tree.  
