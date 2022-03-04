@@ -1,7 +1,7 @@
 # Guide to Compile Android Kernel~
 This one's specifically for Ubuntu based distros and Gitpod workspace.  
 Assuming you know a bit of git and bash basics, I'll cover everything else in detail~  
-For TLDR scroll to [Command Summary](##CommandSummary)
+For TLDR scroll to [Command Summary](#command-summary)
 
 _Note: Guide commands can be followed blindly from any directory. I'll be referring to 64bit ARM SOCs. Also_ `--depth=1` _flag has been used each time to save storage space while_ `git clone`.  
 ### Step 1:
