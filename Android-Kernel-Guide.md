@@ -47,7 +47,7 @@ Let's clone the toolchain:
 ```
 git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master mykernel/toolchain
 ```
-We cloned the toolchain in ./mykernel/toolchain directory, let's get started with actual compilation~  
+_We cloned the toolchain in ./mykernel/toolchain directory, let's get started with actual compilation~_    
   
 First we create an out directory (the directory where all of the compiled stuff goes):
 ```
@@ -57,7 +57,7 @@ Now we tell the Makefile the architecture of our device:
 ```
 export ARCH=arm64 && export SUBARCH=arm64
 ```
-We specified architecture as 64bit ARM.  
+_We specified architecture as 64bit ARM._    
   
 Now we specify the defconfig that we want to compile for (make sure to choose the one for your device properly):
 ```
@@ -67,7 +67,7 @@ For eg in the MSM8937 kernel repo if I want to compile for "mi8937" device which
 ```
 make O=out ARCH=arm64 mi8937_defconfig
 ```
-All defconfig files are located in arch/arm64/configs directory (ofcourse the arm64 here means our architecture so look for your designaed paths accordingly, it's `arm` for 32bit btw :P).  
+_All defconfig files are located in arch/arm64/configs directory (ofcourse the arm64 here means our architecture so look for your designaed paths accordingly, it's `arm` for 32bit btw :P)._    
   
 Now the environment needs the path to your compiler to run it during compilation:
 ```
